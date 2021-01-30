@@ -9,5 +9,19 @@
 const aKey = document.querySelector('body');
 
 aKey.addEventListener('keydown', function(e) {
-    console.log(e.keyCode);
+    highlightEvent(e.key);
 });
+
+
+function highlightEvent(code) {
+    const highlight = document.querySelector(`div[data-key="${code}"]`);
+
+    
+    highlight.classList.add('sound');
+    
+
+    setInterval(() => {
+        highlight.classList.remove('sound');
+    }, 200);
+
+}
